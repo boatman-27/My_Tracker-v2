@@ -55,7 +55,7 @@ const Expense = () => {
       body: serializedBody,
     };
 
-    fetch("https://my-tracker-v2.vercel.app/registerNewExpense", fetchOptions)
+    fetch("/registerNewExpense", fetchOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
@@ -70,7 +70,7 @@ const Expense = () => {
   };
 
   useEffect(() => {
-    fetch("https://my-tracker-v2.vercel.app/getExpenses")
+    fetch("/getExpenses")
       .then((response) => response.json())
       .then((data) => setExpenses(data));
   }, []);
