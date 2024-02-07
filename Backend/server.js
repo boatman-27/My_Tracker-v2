@@ -14,7 +14,7 @@ const { Pool } = pg;
 
 app.use(
   cors({
-    origin: "https://my-tracker-v2.vercel.app",
+    origin: "https://my-tracker-v2-nine.vercel.app/",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
