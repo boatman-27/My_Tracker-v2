@@ -14,7 +14,7 @@ const { Pool } = pg;
 
 app.use(
   cors({
-    origin: "",
+    origin: "*",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
