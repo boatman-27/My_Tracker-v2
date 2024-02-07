@@ -12,7 +12,7 @@ const { Pool } = pg;
 
 app.use(
   cors({
-    origin: "https://my-tracker-v2-server.vercel.app/",
+    origin: "https://my-tracker-v2-client.vercel.app",
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
     credentials: true,
   })
@@ -22,15 +22,6 @@ const pool = new Pool({
   connectionString:
     "postgres://default:tbuI1xmkKU4d@ep-autumn-butterfly-a4tpzrso-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
 });
-
-// const db = new pg.Client({
-//   user: process.env.PG_USER,
-//   host: process.env.PG_HOST,
-//   database: process.env.PG_DATABASE,
-//   password: process.env.PG_PASSWORD,
-//   port: process.env.PG_PORT,
-// });
-// db.connect();
 
 async function checkVisited() {
   const client = await pool.connect();
