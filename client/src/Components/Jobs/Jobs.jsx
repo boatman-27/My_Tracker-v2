@@ -56,14 +56,22 @@ const Jobs = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    const serializedBody = JSON.stringify(jobsData);
+
     const fetchOptions = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: serializedBody,
+      body: JSON.stringify({
+        title: jobsData.title,
+        desc: jobsData.desc, // Update to match the expected field name on the server
+        company: jobsData.company,
+        location: jobsData.location,
+        link: jobsData.link,
+        status: jobsData.status,
+      }),
     };
+
     fetch(
       "https://my-tracker-v2-server.vercel.app/registerNewJob",
       fetchOptions
