@@ -1,0 +1,9 @@
+@media (max-width: 768px) {
+  .flex-container {
+    flex-direction: column;
+  }
+
+  .card {
+    margin-bottom: 20px; /* Add margin between stacked cards */
+  }
+}
