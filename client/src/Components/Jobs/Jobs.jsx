@@ -26,7 +26,7 @@ const Jobs = () => {
     const { value } = event.target;
     setJobsData((companyData) => ({
       ...companyData,
-      desc: value,
+      job_desc: value,
     }));
   };
 
