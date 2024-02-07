@@ -6,8 +6,6 @@ env.config();
 
 const app = express();
 const port = 7001;
-
-app.use(cors());
 app.use(express.json());
 
 const { Pool } = pg;
