@@ -64,7 +64,10 @@ const Jobs = () => {
       },
       body: serializedBody,
     };
-    fetch("/registerNewJob", fetchOptions)
+    fetch(
+      "https://my-tracker-v2-server.vercel.app/registerNewJob",
+      fetchOptions
+    )
       .then((response) => {
         console.log(response);
         response.json();
