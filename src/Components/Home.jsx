@@ -16,7 +16,10 @@ const Home = () => {
       },
     };
 
-    fetch(`/deleteTask/${taskId}`, fetchOptions)
+    fetch(
+      `https://my-tracker-v2-server.vercel.app/deleteTask/${taskId}`,
+      fetchOptions
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -26,13 +29,13 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch("/getTasks")
+    fetch("https://my-tracker-v2-server.vercel.app/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data));
   }, []);
 
   const fetchTasks = () => {
-    fetch("/getTasks")
+    fetch("https://my-tracker-v2-server.vercel.app/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error("Error:", error));
@@ -41,7 +44,7 @@ const Home = () => {
   // Jobs
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    fetch("/getJobs")
+    fetch("https://my-tracker-v2-server.vercel.app/getJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -57,7 +60,10 @@ const Home = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(`/jobAccepted/${jobID}`, fetchOptions)
+    fetch(
+      `https://my-tracker-v2-server.vercel.app/jobAccepted/${jobID}`,
+      fetchOptions
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -73,7 +79,10 @@ const Home = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(`/jobRejected/${jobID}`, fetchOptions)
+    fetch(
+      `https://my-tracker-v2-server.vercel.app/jobRejected/${jobID}`,
+      fetchOptions
+    )
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -83,7 +92,7 @@ const Home = () => {
   };
 
   const fetchJobs = () => {
-    fetch("/getJobs")
+    fetch("https://my-tracker-v2-server.vercel.app/getJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
