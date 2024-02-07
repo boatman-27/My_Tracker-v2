@@ -23,12 +23,12 @@ const Travel = () => {
       },
       body: serializedBody,
     };
-    fetch("/registerNewTravel", fetchOptions);
+    fetch("https://my-tracker-v2.vercel.app/registerNewTravel", fetchOptions);
     setCountryName("");
   };
 
   useEffect(() => {
-    fetch("/visited")
+    fetch("https://my-tracker-v2.vercel.app/visited")
       .then((response) => response.json())
       .then((data) => {
         // Ensure data.result is an array

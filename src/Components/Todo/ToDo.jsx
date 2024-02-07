@@ -48,7 +48,7 @@ const ToDo = () => {
       body: serializedBody,
     };
 
-    fetch("/registerNewTask", fetchOptions)
+    fetch("https://my-tracker-v2.vercel.app/registerNewTask", fetchOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
@@ -81,7 +81,7 @@ const ToDo = () => {
       },
     };
 
-    fetch(`/deleteTask/${taskId}`, fetchOptions)
+    fetch(`https://my-tracker-v2.vercel.app/deleteTask/${taskId}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -91,13 +91,13 @@ const ToDo = () => {
   };
 
   useEffect(() => {
-    fetch("/getTasks")
+    fetch("https://my-tracker-v2.vercel.app/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data));
   }, []);
 
   const fetchTasks = () => {
-    fetch("/getTasks")
+    fetch("https://my-tracker-v2.vercel.app/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error("Error:", error));
