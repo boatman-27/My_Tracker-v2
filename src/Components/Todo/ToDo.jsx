@@ -48,7 +48,7 @@ const ToDo = () => {
       body: serializedBody,
     };
 
-    fetch("http://localhost:7001/registerNewTask", fetchOptions)
+    fetch("/registerNewTask", fetchOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
@@ -81,7 +81,7 @@ const ToDo = () => {
       },
     };
 
-    fetch(`http://localhost:7001/deleteTask/${taskId}`, fetchOptions)
+    fetch(`/deleteTask/${taskId}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -91,13 +91,13 @@ const ToDo = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:7001/getTasks")
+    fetch("/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data));
   }, []);
 
   const fetchTasks = () => {
-    fetch("http://localhost:7001/getTasks")
+    fetch("/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error("Error:", error));

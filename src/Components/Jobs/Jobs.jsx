@@ -64,7 +64,7 @@ const Jobs = () => {
       },
       body: serializedBody,
     };
-    fetch("http://localhost:7001/registerNewJob", fetchOptions)
+    fetch("https://my-tracker-v2.vercel.app/registerNewJob", fetchOptions)
       .then((response) => response.json())
       .then((data) => console.log(data))
       .catch((error) => console.error("Error:", error));
@@ -81,7 +81,7 @@ const Jobs = () => {
   };
 
   useEffect(() => {
-    fetch("http://localhost:7001/getJobs")
+    fetch("https://my-tracker-v2.vercel.app/getJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -103,7 +103,7 @@ const Jobs = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(`http://localhost:7001/jobAccepted/${jobID}`, fetchOptions)
+    fetch(`https://my-tracker-v2.vercel.app/jobAccepted/${jobID}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -119,7 +119,7 @@ const Jobs = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(`http://localhost:7001/jobRejected/${jobID}`, fetchOptions)
+    fetch(`https://my-tracker-v2.vercel.app/jobRejected/${jobID}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -129,7 +129,7 @@ const Jobs = () => {
   };
 
   const fetchJobs = () => {
-    fetch("http://localhost:7001/getJobs")
+    fetch("https://my-tracker-v2.vercel.app/getJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);

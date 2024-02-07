@@ -12,6 +12,14 @@ app.use(express.json());
 
 const { Pool } = pg;
 
+app.use(
+  cors({
+    origin: "https://my-tracker-v2.vercel.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+  })
+);
+
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL + "?sslmode=require",
 });

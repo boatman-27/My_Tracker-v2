@@ -23,12 +23,12 @@ const Travel = () => {
       },
       body: serializedBody,
     };
-    fetch("http://localhost:7001/registerNewTravel", fetchOptions);
+    fetch("/registerNewTravel", fetchOptions);
     setCountryName("");
   };
 
   useEffect(() => {
-    fetch("http://localhost:7001/visited")
+    fetch("/visited")
       .then((response) => response.json())
       .then((data) => {
         // Ensure data.result is an array
