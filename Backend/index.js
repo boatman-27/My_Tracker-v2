@@ -51,10 +51,6 @@ async function checkVisited() {
   }
 }
 
-app.use("/", (req, res) => {
-  res.send("Welcome");
-});
-
 app.post("/registerNewTask", async (req, res) => {
   const client = await pool.connect();
   console.log(req.body);
