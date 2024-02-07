@@ -18,6 +18,10 @@ app.use(
   })
 );
 
+app.get("/", (req, res) => {
+  console.log("WORKING");
+});
+
 const pool = new Pool({
   connectionString:
     "postgres://default:tbuI1xmkKU4d@ep-autumn-butterfly-a4tpzrso-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
