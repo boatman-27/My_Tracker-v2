@@ -16,7 +16,7 @@ const Home = () => {
       },
     };
 
-    fetch(`https://my-tracker-v2.vercel.app/deleteTask/${taskId}`, fetchOptions)
+    fetch(`/deleteTask/${taskId}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -26,13 +26,13 @@ const Home = () => {
   };
 
   useEffect(() => {
-    fetch("https://my-tracker-v2.vercel.app/getTasks")
+    fetch("/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data));
   }, []);
 
   const fetchTasks = () => {
-    fetch("https://my-tracker-v2.vercel.app/getTasks")
+    fetch("/getTasks")
       .then((response) => response.json())
       .then((data) => setTasks(data))
       .catch((error) => console.error("Error:", error));
@@ -41,7 +41,7 @@ const Home = () => {
   // Jobs
   const [jobs, setJobs] = useState([]);
   useEffect(() => {
-    fetch("https://my-tracker-v2.vercel.app/getJobs")
+    fetch("/getJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -57,7 +57,7 @@ const Home = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(`https://my-tracker-v2.vercel.app/jobAccepted/${jobID}`, fetchOptions)
+    fetch(`/jobAccepted/${jobID}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -73,7 +73,7 @@ const Home = () => {
         "Content-Type": "application/json",
       },
     };
-    fetch(`https://my-tracker-v2.vercel.app/jobRejected/${jobID}`, fetchOptions)
+    fetch(`/jobRejected/${jobID}`, fetchOptions)
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
@@ -83,7 +83,7 @@ const Home = () => {
   };
 
   const fetchJobs = () => {
-    fetch("https://my-tracker-v2.vercel.app/getJobs")
+    fetch("/getJobs")
       .then((response) => response.json())
       .then((data) => {
         console.log(data);
