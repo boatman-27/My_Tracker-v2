@@ -53,10 +53,9 @@ app.post("/registerNewTask", async (req, res) => {
     res.json({ message: "Task added successfully" });
   } catch (error) {
     console.log(error);
+  } finally {
+    client.release();
   }
-  // finally {
-  //   client.release();
-  // }
 });
 
 app.get("/getTasks", async (req, res) => {
@@ -157,7 +156,7 @@ app.get("/getExpenses", async (req, res) => {
   }
 });
 
-app.post("registerNewJob", async (req, res) => {
+app.post("/registerNewJob", async (req, res) => {
   const { title, desc, company, location, link, status } = req.body;
   const client = await pool.connect();
   console.log(req.body);
