@@ -157,29 +157,26 @@ app.get("/getExpenses", async (req, res) => {
   }
 });
 
-app.post(
-  "https://my-tracker-v2-server.vercel.app/registerNewJob",
-  async (req, res) => {
-    const { title, desc, company, location, link, status } = req.body;
-    const client = await pool.connect();
-    console.log(req.body);
-    res.json({ message: "Task registered successfully" });
-    res.json(req.body);
-    try {
-      await client.query(
-        "INSERT INTO jobs (job_title, job_desc, comp_name, comp_location, link, job_status) VALUES ($1, $2, $3, $4, $5, $6)",
-        [title, desc, company, location, link, status]
-      );
-      res.json({ message: "Task added successfully" });
-    } catch (error) {
-      console.log(error);
-    } finally {
-      client.release();
-    }
+app.post("registerNewJob", async (req, res) => {
+  const { title, desc, company, location, link, status } = req.body;
+  const client = await pool.connect();
+  console.log(req.body);
+  res.json({ message: "Task registered successfully" });
+  res.json(req.body);
+  try {
+    await client.query(
+      "INSERT INTO jobs (job_title, job_desc, comp_name, comp_location, link, job_status) VALUES ($1, $2, $3, $4, $5, $6)",
+      [title, desc, company, location, link, status]
+    );
+    res.json({ message: "Task added successfully" });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    client.release();
   }
-);
+});
 
-app.get("https://my-tracker-v2-server.vercel.app/getJobs", async (req, res) => {
+app.get("/getJobs", async (req, res) => {
   const client = await pool.connect();
   try {
     const result = await client.query("SELECT * FROM jobs");

@@ -28,6 +28,7 @@ const Travel = () => {
       fetchOptions
     );
     setCountryName("");
+    window.location.reload();
   };
 
   useEffect(() => {
