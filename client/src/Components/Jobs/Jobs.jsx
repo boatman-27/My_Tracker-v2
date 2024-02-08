@@ -7,7 +7,7 @@ const Jobs = () => {
   const [jobs, setJobs] = useState([]);
   const [jobsData, setJobsData] = useState({
     title: "",
-    jobs_desc: "",
+    desc: "",
     company: "",
     location: "",
     link: "",
@@ -26,7 +26,7 @@ const Jobs = () => {
     const { value } = event.target;
     setJobsData((companyData) => ({
       ...companyData,
-      job_desc: value,
+      desc: value,
     }));
   };
 
