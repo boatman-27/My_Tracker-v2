@@ -35,7 +35,10 @@ const pool = new Pool({
     "postgres://default:tbuI1xmkKU4d@ep-autumn-butterfly-a4tpzrso-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
 });
 
-const whitelist = ["https://my-tracker-v2-client.vercel.app"];
+const whitelist = [
+  "https://my-tracker-v2-client.vercel.app",
+  "https://my-tracker-v2-server.vercel.app/",
+];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {
