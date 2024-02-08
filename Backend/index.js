@@ -10,15 +10,14 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: "https://my-tracker-v2-client.vercel.app",
+    origin: [process.env.DOMAIN_1, process.env.DOMAIN_2, process.env.DOMAIN_3],
   })
 );
 
 const { Pool } = pg;
 
 const pool = new Pool({
-  connectionString:
-    "postgres://default:tbuI1xmkKU4d@ep-autumn-butterfly-a4tpzrso-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
+  connectionString: process.env.POSTGRESS_URL,
 });
 
 async function checkVisited() {

@@ -84,6 +84,7 @@ const Jobs = () => {
       status: "Pending",
     });
     setExpanded(false);
+    window.location.reload();
   };
 
   useEffect(() => {
