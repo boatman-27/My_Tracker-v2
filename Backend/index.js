@@ -10,35 +10,12 @@ app.use(express.json());
 
 const { Pool } = pg;
 
-app.use(
-  cors({
-    origin: "https://my-tracker-v2-client.vercel.app",
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    credentials: true,
-    allowedHeaders: ["Content-Type", "Authorization"], // Add necessary headers
-  })
-);
-
-app.use((req, res, next) => {
-  res.header(
-    "Access-Control-Allow-Origin",
-    "https://my-tracker-v2-client.vercel.app"
-  );
-  res.header("Access-Control-Allow-Methods", "GET,HEAD,PUT,PATCH,POST,DELETE");
-  res.header("Access-Control-Allow-Headers", "Content-Type, Authorization");
-  res.header("Access-Control-Allow-Credentials", true);
-  next();
-});
-
 const pool = new Pool({
   connectionString:
     "postgres://default:tbuI1xmkKU4d@ep-autumn-butterfly-a4tpzrso-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
 });
 
-const whitelist = [
-  "https://my-tracker-v2-client.vercel.app",
-  "https://my-tracker-v2-server.vercel.app/",
-];
+const whitelist = ["https://my-tracker-v2-client.vercel.app"];
 const corsOptions = {
   origin: function (origin, callback) {
     if (!origin || whitelist.indexOf(origin) !== -1) {
