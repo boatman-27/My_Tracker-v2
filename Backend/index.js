@@ -168,6 +168,7 @@ app.post("/registerNewJob", async (req, res) => {
   const client = await pool.connect();
   console.log(req.body);
   res.json({ message: "Task registered successfully" });
+  res.json(req.body);
   try {
     await client.query(
       "INSERT INTO jobs (job_title, job_desc, comp_name, comp_location, link, job_status) VALUES ($1, $2, $3, $4, $5, $6)",
