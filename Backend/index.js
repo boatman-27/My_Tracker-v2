@@ -15,18 +15,14 @@ const pool = new Pool({
     "postgres://default:tbuI1xmkKU4d@ep-autumn-butterfly-a4tpzrso-pooler.us-east-1.aws.neon.tech:5432/verceldb?sslmode=require",
 });
 
-const whitelist = ["https://my-tracker-v2-client.vercel.app"];
-const corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin || whitelist.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(new Error("Not allowed by CORS"));
-    }
-  },
-  credentials: true,
-};
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "https://my-tracker-v2-client.vercel.app",
+    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+    credentials: true,
+    allowedHeaders: ["Content-Type", "Authorization"],
+  })
+);
 
 async function checkVisited() {
   const client = await pool.connect();
