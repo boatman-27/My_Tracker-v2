@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: [process.env.DOMAIN_1, process.env.DOMAIN_2, process.env.DOMAIN_3],
+    origin: [process.env.DOMAIN_1],
   })
 );
 
