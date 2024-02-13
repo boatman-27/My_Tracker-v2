@@ -53,7 +53,7 @@ const Home = () => {
       .catch((error) => console.error("Error:", error));
   }, []);
 
-  const Accpeted = (jobID) => {
+  const Accepted = (jobID) => {
     const fetchOptions = {
       method: "PATCH",
       headers: {
@@ -244,38 +244,40 @@ const Home = () => {
       </div>
       <h1 className="text-white header text-center">Last Jobs I applied to</h1>
       {jobs.length > 0 && (
-        <div className="grid" style={{ marginBottom: "90px" }}>
+        <div className="grid grid-cols-3 gap-4">
           {jobs.map((job) => (
-            <Card
-              className="max-w-sm backdrop-blur-xl bg-transparent"
-              style={{
-                width: "100%",
-                height: "100%",
-                borderRadius: "10px",
-                padding: "10px",
-                minWidth: "500px",
-                marginTop: "50px",
-              }}
-              key={job.id}
-            >
-              <h1 className="text-white header">{job.job_title}</h1>
-              <p className="text-white">{job.job_desc}</p>
-              <p className="text-white">{job.comp_name}</p>
-              <p className="text-white">{job.comp_location}</p>
-              <p className="text-white">{job.link}</p>
-              <p className="text-white text-center">{job.job_status}</p>
-              <div
-                className="flex flex-row justify-center items-center"
-                style={{ gap: "20px" }}
+            <div key={job.id}>
+              <Card
+                className="max-w-sm backdrop-blur-xl bg-transparent"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  borderRadius: "10px",
+                  padding: "10px",
+                  minWidth: "500px",
+                  marginTop: "50px",
+                }}
               >
-                <Button color="success" onClick={() => Accpeted(job.id)}>
-                  Accepted
-                </Button>
-                <Button color="failure" onClick={() => Rejected(job.id)}>
-                  Rejected
-                </Button>
-              </div>
-            </Card>
+                <h1 className="text-white header">{job.job_title}</h1>
+                <p className="text-white">{job.job_desc}</p>
+                <p className="text-white">{job.comp_name}</p>
+                <p className="text-white">{job.comp_location}</p>
+                <p className="text-white">{job.link}</p>
+                <p className="text-white text-center">{job.job_status}</p>
+
+                <div
+                  className="flex flex-row justify-center items-center"
+                  style={{ gap: "20px" }}
+                >
+                  <Button color="success" onClick={() => Accepted(job.id)}>
+                    Accepted
+                  </Button>
+                  <Button color="failure" onClick={() => Rejected(job.id)}>
+                    Rejected
+                  </Button>
+                </div>
+              </Card>
+            </div>
           ))}
         </div>
       )}
