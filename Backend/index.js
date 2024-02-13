@@ -10,7 +10,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: [process.env.DOMAIN_1],
+    origin: ["http://localhost:3000", process.env.DOMAIN_1],
   })
 );
 
